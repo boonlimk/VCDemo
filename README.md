@@ -4,7 +4,7 @@ Version Control Demo for 2D Game Programming Class in UOWM KDU
 This demo is to let students try out the basic controls and features in Version Control (Commit, Pull & Push).
 
 
-Unity Version used 2019.3.0f3
+Unity Version used 2018.4.14f1
 
 
 Start here: https://guides.github.com/activities/hello-world/
