@@ -25,7 +25,7 @@ public class DroneScript : MonoBehaviour
             transform.Translate(Vector2.left * ChaseSpeed * Time.deltaTime);
         }
         TimeTicker += Time.deltaTime;
-        if(TimeTicker==1)
+        if(TimeTicker>1)
         {
             IsMoveRight = !IsMoveRight;
             TimeTicker = 0;
