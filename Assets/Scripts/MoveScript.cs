@@ -16,22 +16,21 @@ public class MoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetAxisRaw("Horizontal") > 0)
         {
             transform.position += Vector3.right * Time.deltaTime * moveSpeed;
         }
-		
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            transform.position -= Vector3.left * Time.deltaTime * moveSpeed;
+            transform.position += Vector3.left * Time.deltaTime * moveSpeed;
         }
     }
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
-            rb.velocity = new Vector3(0, 10 * jumpheight * Time.deltaTime, 0);
+            transform.position += Vector3.up * Time.deltaTime * jumpHeight;
         }
     }
 }
