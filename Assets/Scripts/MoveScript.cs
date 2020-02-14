@@ -15,7 +15,8 @@ public class MoveScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.up * (Mathf.Sin(amount) * height);
+		//! BL Edit here
+        transform.position = Vector3.down * (Mathf.Sin(amount) * height);
         amount += Time.deltaTime;
     }
 }
