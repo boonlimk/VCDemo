@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
-    public float jumpheight;
+    public float jumpheight= 10.0f;
     private Rigidbody2D rb;
     public float moveSpeed = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.right * Time.deltaTime * moveSpeed;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+		
+        if (Input.GetKey(KeyCode.D))
         {
             transform.position -= Vector3.left * Time.deltaTime * moveSpeed;
         }

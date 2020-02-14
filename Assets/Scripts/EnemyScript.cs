@@ -4,34 +4,34 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    float amount;
-    public float height = 1.0f;
-    public float moveSpeed = 3f;
+    public float jumpheight = 10.0f;
+    private Rigidbody2D rb;
+    public float moveSpeed = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(Vector3.left * Time.deltaTime * Input.GetAxis("Horizontal") * moveSpeed);
-            amount += Time.deltaTime;
+            transform.position += Vector3.right * Time.deltaTime * moveSpeed;
         }
-        
-        if(Input.GetKeyDown(KeyCode.RightArrow))
+		
+        if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(Vector3.right * Time.deltaTime * Input.GetAxis("Vertical") * moveSpeed);
+            transform.position -= Vector3.left * Time.deltaTime * moveSpeed;
         }
+    }
 
+    void FixedUpdate()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            transform.Translate(Vector3.up * Time.deltaTime * Input.GetAxis("Up") * moveSpeed);
+            rb.velocity = new Vector3(0, 10 * jumpheight * Time.deltaTime, 0);
         }
-
-            
     }
 }
