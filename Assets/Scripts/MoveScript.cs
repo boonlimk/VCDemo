@@ -23,7 +23,7 @@ public class MoveScript : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            transform.position -= Vector3.left * Time.deltaTime * moveSpeed;
+            transform.position += Vector3.left * Time.deltaTime * moveSpeed;
         }
     }
 
@@ -31,7 +31,7 @@ public class MoveScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.velocity = new Vector3(0, 10 * jumpheight * Time.deltaTime, 0);
+            transform.position += Vector3.up * Time.deltaTime * jumpHeight;
         }
     }
 }
