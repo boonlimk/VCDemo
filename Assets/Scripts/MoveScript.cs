@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
-    float amount;
-    public float height = 1.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float moveSpeed;
+    public float jumpPower;
 
-    // Update is called once per frame
     void Update()
     {
-		//! BL Edit here
-        transform.position = Vector3.down * (Mathf.Sin(amount) * height);
-        amount += Time.deltaTime;
+        if(Input.GetAxisRaw("Horizontal") < 0)
+        {
+            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        }
+        if (Input.GetAxisRaw("Horizontal") > 0)
+        {
+            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
+            transform.position += Vector3.up * jumpPower * Time.deltaTime;
+        }
     }
 }
+
