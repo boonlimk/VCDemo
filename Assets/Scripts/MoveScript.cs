@@ -5,23 +5,15 @@ using UnityEngine;
 public class MoveScript : MonoBehaviour
 {
     public float jumpheight;
-    private Rigidbody2D rb;
     public float moveSpeed = 5.0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("Start");
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetAxisRaw("Horizontal") > 0)
         {
             transform.position += Vector3.right * Time.deltaTime * moveSpeed;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetAxisRaw("Horizontal") < 0)
         {
             transform.position += Vector3.left * Time.deltaTime * moveSpeed;
         }
@@ -29,7 +21,7 @@ public class MoveScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetButtonDown("Jump"))
         {
             transform.position += Vector3.up * Time.deltaTime * jumpHeight;
         }
