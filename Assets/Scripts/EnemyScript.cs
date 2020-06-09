@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveScript : MonoBehaviour
+public class EnemyScript : MonoBehaviour
 {
     public float jumpHeight = 10.0f;
     private Rigidbody2D rb;
