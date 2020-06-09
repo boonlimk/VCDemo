@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
-    public float jumpheight= 10.0f;
+    public float jumpHeight = 10.0f;
     private Rigidbody2D rb;
     public float moveSpeed = 5.0f;
     // Start is called before the first frame update
