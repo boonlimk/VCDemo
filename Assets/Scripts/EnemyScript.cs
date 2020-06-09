@@ -4,33 +4,33 @@ using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
-    public float jumpHeight = 10.0f;
-    private Rigidbody2D rb;
-    public float moveSpeed = 5.0f;
+    public float ChaseSpeed = 0.2f;
+    public bool IsMoveRight = true;
+    public float TimeTicker = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        //rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (IsMoveRight == true)
         {
-            transform.position += Vector3.right * Time.deltaTime * moveSpeed;
+            transform.Translate(Vector2.right * ChaseSpeed * Time.deltaTime);
         }
-        if (Input.GetAxisRaw("Horizontal") < 0)
+        else
         {
-            transform.position += Vector3.left * Time.deltaTime * moveSpeed;
+            transform.Translate(Vector2.left * ChaseSpeed * Time.deltaTime);
         }
-    }
+        TimeTicker += Time.deltaTime;
+        if (TimeTicker > 1)
+        {
+            IsMoveRight = !IsMoveRight;
+            TimeTicker = 0;
 
-    void FixedUpdate()
-    {
-        if (Input.GetButtonDown("Jump"))
-        {
-            transform.position += Vector3.up * Time.deltaTime * jumpHeight;
         }
     }
 }
