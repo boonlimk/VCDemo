@@ -31,4 +31,13 @@ public class HomingMissileScript : MonoBehaviour
         rb.angularVelocity = -rotationAmount * rotationSpeed;
         rb.velocity = transform.up * speed;
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("Floor"))
+        {
+            Destroy(gameObject);
+        }
+
+    }
 }
