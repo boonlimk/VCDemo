@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a05b2ea6dae9c24da6d3bdb4fe32b72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 10
+  jumpHeight: 30
   moveSpeed: 5
 --- !u!212 &13147462
 SpriteRenderer:
